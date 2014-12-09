@@ -1,0 +1,16 @@
+SYS-SYSDEVICE:[TCC.PTERR]PTERR_20141208.DAT;5 with signs reversed for new tcc
+T  144   3.3199
+  IE         +0.6757
+  IA        +79.4921
+  PZZ1     +127.4443
+  AN         -4.1229
+  AW        +11.9716
+  CA         -2.8365
+  HWCA2      -0.1157
+  HWSA2      -1.1167
+  HNCA1      +2.3384
+  HNSA1      +2.2300
+  ACEC       -1.6627
+  ACES       +1.8289
+  TX         +3.7552
+END

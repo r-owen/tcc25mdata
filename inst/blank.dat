@@ -1,0 +1,138 @@
+# Inst data
+# 
+# Data encoded in the NAME of the instrument data files.
+# Values specified in the contents of such files will be ignored by the \"set inst\" command
+# (but will be used by the \"set block inst\" command).
+# 
+# Instrument position
+instPos ?
+# Instrument name
+instName '?'
+# Name of current guide camera view
+gcViewName ''
+# 
+# User-set values
+# These values are held fixed or reset during an instrument change;
+# values specified in instrument data files will be ignored.
+# 
+# User-set secondary mirror focus offset (um)
+secUserFocus 0.0
+# User-set guide camera focus offset (um)
+gcUserFocus 0.0
+# Scale factor = actual focal plane scale / nominal scale (no units)
+# larger scale gives higher resolution (e.g. more pixels/arcsec)
+scaleFac 1.0
+# 
+# Mirror collimation coefficients
+# value = coeff[0] + coeff[1] sin(alt) + coeff[2] cos(alt)
+# 
+# Primary piston collimation coefficients (um)
+primPistCoef 0.0 0.0 0.0
+# Primary x tilt collimation coefficients (arcsec)
+primXTiltCoef 0.0 0.0 0.0
+# Primary y tilt collimation coefficients (arcsec)
+primYTiltCoef 0.0 0.0 0.0
+# Primary x translation collimation coefficients (um)
+primXTransCoef 0.0 0.0 0.0
+# Primary y translation collimation coefficients (um)
+primYTransCoef 0.0 0.0 0.0
+# Secondary piston collimation coefficients (um)
+secPistCoef 0.0 0.0 0.0
+# Secondary x tilt collimation coefficients (arcsec)
+secXTiltCoef 0.0 0.0 0.0
+# Secondary y tilt collimation coefficients (arcsec)
+secYTiltCoef 0.0 0.0 0.0
+# Secondary x translation collimation coefficients (um)
+secXTransCoef 0.0 0.0 0.0
+# Secondary y translation collimation coefficients (um)
+secYTransCoef 0.0 0.0 0.0
+# Tertiary piston collimation coefficients (um)
+tertPistCoef 0.0 0.0 0.0
+# Tertiary x tilt collimation coefficients (arctert)
+tertXTiltCoef 0.0 0.0 0.0
+# Tertiary y tilt collimation coefficients (arctert)
+tertYTiltCoef 0.0 0.0 0.0
+# Tertiary x translation collimation coefficients (um)
+tertXTransCoef 0.0 0.0 0.0
+# Tertiary y translation collimation coefficients (um)
+tertYTransCoef 0.0 0.0 0.0
+# 
+# Other mirror-related data
+# 
+# Secondary piston (focus) temperature coefficients (um/C)
+# offset = coeff[0] * secondary truss temp
+# + coef[1] * primary front temp   + coef[2] * primary back-front delta-t
+# + coef[3] * secondary front temp + coef[4] * secondary back-front delta-t
+secPistTempCoef 0.0 0.0 0.0 0.0 0.0
+# Maximum allowed scale factor; minimum is 1/maxScaleFac;
+# set to 1.0 if scale factor is not adjustable
+maxScaleFac 1.0
+# Primary scale coefficient (um): delta piston = coeff * (scaleFac - 1)
+primPistScaleCoef 0.0
+# Secondary scale coefficient (um): delta piston = coeff * (scaleFac - 1)
+secPistScaleCoef 0.0
+# 
+# Instrument data
+# 
+# Desired center of instrument image (unbinned pixels)
+iim_ctr 0.0 0.0
+# Instrument image scale (unbinned pixels/deg on the sky)
+iim_scale 0.0 0.0
+# Minimum position on instrument image (unbinned pixels)
+iim_minXY 0.0 0.0
+# Maximum position on instrument image (unbinned pixels)
+iim_maxXY 0.0 0.0
+# Focus (secondary piston) offset due to instrument (um)
+inst_foc 0.0
+# Position of the center of the rotator in instrument frame (x,y deg)
+rot_inst_xy 0.0 0.0
+# Angle from the instrument x axis to the rotator x axis (deg)
+rot_inst_ang 0.0
+# Rotator position limits due to the instrument: min pos (deg), max pos (deg)
+# Note: the actual rotator position limits are the intersection of this
+# with the position components of rotLim
+# 
+instPosLim 0.0 0.0
+# 
+# Instrument rotator data that are independent of the instrument
+# 
+# Rotator ID, or 0 if none
+rotID 0
+# Physical position used for pointing error measurements,
+# and the fixed physical rotation if there is no rotator
+# mount pos = offet + (scale * physical pos)
+rot_fixed_phys 0.0
+# Rotator mount offset (mount units)
+rot_offset 0.0
+# Rotator mount scale (mount units/degree)
+rot_scale 0.0
+# Rotator limits due to the rotator: min pos(deg), max pos (deg), vel (deg/sec), accel (deg/sec^2) and jerk (deg/sec^3)
+# note: the true position limits are the intersection of this with instPosLim
+rotLim 0.0 0.0 0.0 0.0 0.0
+# 
+# Guider data
+# 
+# Guide camera ID, or 0 if none
+gcamID 0
+# Desired center of guide camera image (unbinned pixels)
+gim_ctr 0.0 0.0
+# Guide image scale (unbinned pixels/deg on the sky)
+gim_scale 0.0 0.0
+# Minimum position on guide image (unbinned pixels)
+gim_minXY 0.0 0.0
+# Maximum position on guide image (unbinned pixels)
+gim_maxXY 0.0 0.0
+# Guide probe data
+# probe number (starting from 1 and strictly sequential), does probe exist?
+# if and only if the probe exists then this data must follow in order:
+# center of guide probe on guide image (x,y unbinned pix)
+# mininum guide image coordinates (x,y unbinned pix)
+# maximum guide image coordinates (x,y unbinned pix)
+# position of guide camera probe w.r.t. rotator (x,y deg on sky)
+# angle from the guide image x axis to rotator x axis (deg)
+# Number of probe to use for pointing error measurements
+ptErrProbe 0
+# Guider mechanical controller ID, or 0 if none
+gmechID 0
+# Nominal focus for guide camera (um)
+gcNomFocus 0.0

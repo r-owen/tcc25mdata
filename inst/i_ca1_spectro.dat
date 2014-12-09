@@ -1,0 +1,47 @@
+!+
+! SDSS Engineering Spectrograph.
+! The guide probe data must be specified separately.
+!-
+
+! Instrument
+
+! image center (x,y unbinned pix) and scale (x,y unbinned pix/deg on sky)
+! center is desired loc. of zero boresight; it need not be geometric center
+IIm_Ctr         512       512
+IIm_Scale     16700     16700
+! minimum and maximum instrument image coordinates (x,y unbinned pix)
+IIm_MinXY         0         0
+IIm_MaxXY      1023      1023
+
+! focus (secondary piston) offset due to instrument (um)
+Inst_Foc          1400                 !Changed 000329 DL
+! position of the center of the rotator in instrument frame (x,y deg)
+! -0.0015  xxx
+Rot_Inst_xy       0.0             0.0    !Changed 040421 DL
+! angle from the instrument x axis to the rotator x axis (deg)
+Rot_Inst_ang    -89.962                !Changed 2010-12-21 CPL
+!Restored after rotator offset corrected
+
+! minimum and maximum rotator angle due to the instrument (deg)
+! note: the actual rotator limits are the intersection of this
+! with the RotLim angle limits
+InstPosLim     -999       999
+! Guide Camera Image
+
+GCamID            1
+! view number
+! default center of guide image (unbinned pix)
+! (for GCAM commands; used when user does not specify center)
+GIm_Ctr         512       512
+! guide image scale (unbinned pix/deg on sky)
+! 60.6 microns/arcsec, 9 micron pixels
+GIm_Scale      16700    16700
+! minimum and maximum position on guide image (unbinned pix)
+GIm_MinXY         0         0
+GIm_MaxXY       1023     1023
+
+! Guide Probe(s)
+! specify this data in a view file, since it varies by plug-plate
+
+! number of probe used for pointing error measurements
+! PtErrProbe   3

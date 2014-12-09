@@ -1,0 +1,87 @@
+!+
+! SDSS Engineering Camera with the Alta camera at the field center.
+!
+! History:
+! 2001-09-27 DL took instrument block data, treating it as an instrument
+! 2001-09-27 RO fit the data using Inst Data Fit 1.9; track/pterr still set a nonzero boresight
+! 2001-09-28 RO realized Inst Data Fit's guider fit is no good unless tracking as a guider
+!            used Vellum to calculate gp_rot_xy
+! 2004-04-07 DL updated entire inst block esp gp_rot_xy using instDataFit 2.0
+! 2010-08-05 PH First pass at Alta engineering camera 
+! 2010-08-10 CPL Instrument block done.
+! 2014-12-09 RO converted to new tcc format
+!-
+
+! Instrument
+
+! image center (x,y unbinned pix) and scale (x,y unbinned pix/deg on sky)
+! center is desired loc. of zero boresight; it need not be geometric center
+IIm_Ctr         512       512
+IIm_Scale      -16700    16700
+! minimum and maximum instrument image coordinates (x,y unbinned pix)
+IIm_MinXY         0         0
+IIm_MaxXY      1023      1023
+
+! focus (secondary piston) offset due to instrument (um)
+!ph leave the same for now
+Inst_Foc          2000
+! position of the center of the rotator in instrument frame (x,y deg)
+! *** Since the engineering camera is also used as a guide camera
+! *** (e.g. when taking pointing data)
+! *** be sure to also fit "pos. w.r.t. rotator" for guide probe 1
+! *** the value will be different than Rot_Inst_xy
+! *** because Rot_Inst_xy is in the frame of the instrument
+! *** whereas "pos. w.r.t. rotator" is in the frame of the rotator
+Rot_Inst_xy      -0.000170    -0.002124 
+! angle from the instrument x axis to the rotator x axis (deg)
+! *** be sure to also update "angle of rot w.r.t. image" for guide probe 1
+! *** this has the same value as Rot_Inst_ang
+Rot_Inst_ang     89.85
+
+! minimum and maximum rotator angle due to the instrument (deg)
+! note: the actual rotator limits are the intersection of this
+! with the RotLim angle limits
+InstPosLim     -999       999
+
+! Guide Camera Image
+GCamID            1
+
+! default center of guide image (unbinned pix)
+! (for GCAM commands; used when user does not specify center)
+GIm_Ctr         512       512
+! guide image scale (unbinned pix/deg on sky)
+! 60.6 microns/arcsec, 13 micron pixels
+!ph there is a scale discrepency between new and old guider
+!ph old 9um pixel scale was 24015 
+!ph 3600*60.6/13 =  16781
+!ph but 24015*9/13 = 16625
+GIm_Scale     -16700 16700 
+! minimum and maximum position on guide image (unbinned pix)
+GIm_MinXY         0         0
+GIm_MaxXY      1023      1023
+
+! Guide Probe(s)
+! probe number (in range [1,20]), does probe exist? (T=yes/F=no)
+! if and only if the probe exists then this data must follow in order:
+! center of guide probe on guide image (x,y unbinned pix)
+! mininum guide image coordinates (x,y unbinned pix)
+! maximum guide image coordinates (x,y unbinned pix)
+! position of guide camera probe w.r.t. rotator (x,y deg on sky)
+! angle from the guide image x axis to rotator x axis (deg)
+GProbe    1         T		! probe number, exists?
+        512       512  	        ! center (x,y unbinned pix)
+          0         0		! mininum (x,y unbinned pix)
+       1023      1023		! maximum (x,y unbinned pix)
+        0.002124 -0.000164   	! pos. w.r.t. rotator (x,y deg on sky) ph dont know yet
+        89.85			! angle of rot w.r.t. image (deg) 
+! number of probe used for pointing error measurements
+PtErrProbe   1
+
+! A dummy probe one degree out. Note that the second "y" coordinate appears
+! to move in X.
+GProbe    2         T           ! probe number, exists? 
+        512       512           ! center (x,y unbinned pix) 
+          0         0           ! mininum (x,y unbinned pix) 
+       1023      1023           ! maximum (x,y unbinned pix) 
+        0.002124 -1.000164      ! pos. w.r.t. rotator (x,y deg on sky) ph dont know yet 
+        89.85                   ! angle of rot w.r.t. image (deg) 

@@ -1,0 +1,65 @@
+!+
+! AXES LIMITS BLOCK
+!
+! History:
+! 2006-01-24 ROwen changed min alt from 0 to 6 to avoid crushing
+!                  the holloman light baffles.
+! 2007-08-09 ROwen reduced jerk equal to  acceleration
+! 2010-05-05 ROwen added status bits closed_loop and clock_not_set to BadStatusMask
+!                  added status bits max_pos, min_pos to WarnStatusMask
+!                  removed closed_loop from WarnStatusMask
+! 2012-08-10 DL    Increased Altitude lower limit to 18.2 from 6
+!-
+
+!   Basic Mount Limits
+!   axes are: axes are: tel1 (az/eq), tel2 (alt/dec), rot
+
+! Minimum Position (deg)
+MinPos   -195       18.2    -180
+! Maximum Position (deg)
+MaxPos    435      90    +361.0
+! Maximum |velocity| (deg*/sec)
+Vel         2.0     1.5    2.0
+! Mmaximum |acceleration| (deg*/sec^2)
+Accel       0.2   0.08   0.25
+! Maximum |jerk| (deg*/sec^3) (ignored for uncomputed offsets).
+Jerk        0.2     0.08     0.25
+
+!   Status Related Parameters
+
+! Bad status mask: Bad<Axis>Status is printed and
+! Axis Init fails if any of these bits is high in a status word:
+! bit name
+! 11  Out of closed loop
+! 12  Amplifier is bad
+! 13  One or more stop buttons is in
+! 14  Semaphore taken
+! 18  clock_not_set
+! mask = 292864 = 0x47800
+BadStatusMask  292864
+
+! Warning status mask: Warn<Axis>Status is printed
+! and Axis Init warns if any of these bits is high in a status word:
+! bit name
+!  0  pvt_empty
+!  1  pvt_time_late
+!  2  max_pos
+!  3  min_pos
+!  4  max_vel
+!  5  max_acc
+!  6  min_limit
+!  7  max_limit
+! 16  1 Hz clock signal missing
+! 17  clock_slow_signal
+! 24  ms_on_correction_too_large
+! 29  bump_dn_cw_sticky
+! 30  bump_up_ccw_sticky
+! mask = 1627586815 = 0x610300ff
+WarnStatusMask 1627586815
+
+! Maximum delta-time between axis controller and TCC, in sec
+MaxDTime 0.85
+
+!+
+! END OF AXES LIMITS BLOCK
+!-
