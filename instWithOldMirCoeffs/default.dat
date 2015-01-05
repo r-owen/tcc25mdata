@@ -1,0 +1,143 @@
+!+
+! Telescope-Specific Data stored in Default,
+! but the mirror adjustment constant coefficients
+! may be additively modified in other files
+!
+! History:
+! 5/13/99 R.O. First version with history. Changed secondary collimation
+!              coefficients based on data taken with Larry Carey.
+!              We suspect the change is based on damage to the flex pivots
+!              or some other physical change to the system.
+! 5/17/99 R.O. Secondary coefficients updated for today's collimation data.
+! 5/18/99 R.O. Secondary coefficients updated for today's collimation data.
+! 5/19/99 R.O. Primary coefficients updated for today's collimation data.
+! 6/9/99  R.O. Secondary coefficients updated for broken flex pivots.
+! 6/10/99 DL   Primary coeffs updated to collimate for new secondary position.
+! 6/11/99 R.O. Secondary coefficients updated for new temporary flexure.
+! 8/16/99 R.O. Secondary coefficients updated for new M2 central support.
+! 10/3/99 SK   New primary positions for collimation derived by Jim Gunn and
+!              Connie
+! 9/4/99  DL   Primary coeffs updated to collimate for new secondary position.
+! 10/4/99 DL   Crude secondary altitude piston coeff added.
+! 1/26/00 RO   New collimation coefficients for repaired secondary
+! 1/28/00 RO   Yet new collimation coefficients for secondary, after cage adjusted
+! 2/05/00 DL   Primary coeffs updated.
+! 2/07/00 DL   Primary coeffs updated.
+! 8/15/00 DL   Secondary coeffs updated following telescope reassembly
+! 8/19/00 DL   Primary coeffs updated.
+! 9/02/00 DL   Primary coeffs updated.
+! 11/1/00 RO   Secondary coefficients updated based on mediocre data.
+! 11/2/00 RO   Secondary y translation coefficient sign error corrected.
+! 11/29/00 DL  Primary coeffs updated.
+! 6/9/01 EN    Primary coeffs updated.
+! 2001-10-10 RO Secondary coefficients updated.
+! 2002-05-24 RO Secondary coefficients updated.
+! 2002-08-14 RO Secondary coefficients updated.
+! 2002-10-02 RO Secondary coefficients updated. The primary coeffs also probably need updating.
+! 2003-09-16 RO	Secondary coefficients updated. The primary coeffs also probably need updating.
+! 2003-09-17 DL Primary Coefficients updated.
+! 2004-06-10 DL Primary Coefficients updated.
+! 2004-08-06 DL Primary Coefficients updated.
+! 2004-09-08 RO Secondary coefficients updated. The primary coeffs also probably need updating.
+! 2004-09-29 RO Secondary coefficients updated after the secondary cage moved.
+! 2005-08-17 RO Secondary coefficients updated after shutdown. Primary probably also needs updating.
+! 2006-08-07 RO Secondary coefficients updated after shutdown. Primary probably also needs updating.
+! 2006-08-23-MH Primary coefficients updated.
+! 2007-08-09 RO Secondary coefficients updated after shutdown. Primary probably also needs updating.
+! 2007-12-05 DL Secondary coefficients updated after Heidenhain flexure repair
+! 2007-12-12 DL Secondary coefficients updated after second set of data from above repair.
+! 2007-12-12 SS Primary coefficients updated after optical collimation.
+! 2007 12-24 SS Removed M1 tilts, put in new translatin values for better 
+! collimation.
+! 2008-08-23 DL Secondary coefficients updated after shutdown.
+! 2008-08-26 DL Secondary coefficients updated after transverse limit switch 
+!               replacement.
+! 2009-08-15 DL Secondary coefficients updated: mechanical collimation
+! 2010-08-02 DL Secondary coefficients updated: mechanical collimation
+! 2010-08-10 DO, EM, PH M1 coefficients updated: optical collimation
+! 2010-08-11 DO, HB, PH M1 coefficients updated: optical collimation
+! 2011-08-19 DL Secondary coefficients updated: mechanical collimation
+! 2012-07-26 DL Secondary coefficients updated: mechanical collimation
+! 2012-07-27 DL Primary coefficents updated: mechanical collimation
+! 2013-08-13 DL Secondary coefficients updated: mechanical collimation
+! 2014-08-13 DL Secondary coefficients updated: mechanical collimation
+! 2014-08-14 KP, HB, PH M1 coefficients update: optical collimation
+
+! Mirror Control
+
+! mirror collimation coefficients
+! - piston and translation coefficients are in um
+! - tilt coefficients are in arc-seconds
+! - value = Coef1 + Coef2 sin(alt) + Coef3 cos(alt)
+!                const     sin(alt)  cos(alt)
+PrimPistCoef       0.0       0.0       0.0
+! The tilt coefficients should be zero so that scale changes never tilt the mirror
+! and mess up pointing. If you measure a new tilt for collimation then run
+! [TCC.RELEASE.SRC.SUBR.MIR.TEST]dooneorient2mount
+! to determine the corresponding mount position for M1 actuators A, B, C.
+! Then round those values to the nearest multiple of 50
+! and use the rounded values to replace the first three values of PrimMountOffset tdat:mir.dat.
+! Zeroed 2011-10-04 by Russell Owen (along with modifying tdat:mir.dat).
+! Before that the values were:
+! K. Pan retore X-Y Tilt Coef to -24.31 and 11.3 on 8/19/14
+! PrimXTiltCoef      -17.2       0.0       0.0
+! PrimYTiltCoef      11.9       0.0       0.0
+PrimXTiltCoef      0.0       0.0       0.0
+PrimYTiltCoef      0.0       0.0       0.0
+PrimXTransCoef     651.0       0.0       0.0
+PrimYTransCoef     937.4       0.0       0.0
+
+SecPistCoef        0.0    -286.0       0.0
+SecXTiltCoef      -3.8       0.0       0.0
+SecYTiltCoef       0.0       0.0       0.0
+SecXTransCoef      0.0       0.0       0.0
+SecYTransCoef   -317.0       0.0     377.1
+
+
+! secondary piston (focus) temperature coefficients (in um/C)
+! offset = Coef1 * secondary truss temp
+!          + Coef2 * primary front temp   + Coef3 * primary back-front delta-t
+!          + Coef4 * secondary front temp + Coef5 * secondary back-front delta-t
+!                  Truss   PrimB  PrimF  SecB   SecF
+SecPistTempCoef     0.0    0.0    0.0    0.0    0.0
+
+! primary and secondary scale coefficients (um)
+! delta piston = pistScaleCoef * (ScaleFac - 1)
+! note: increased scale magnifies the image (more pixels per arcsec)
+PrimPistScaleCoef       -9871668
+SecPistScaleCoef        -8173741
+
+! piston scale coefficients based on the following from Jim Gunn May 6, 1999
+! and corrected May 8 (he'd left a zero out of the scale factor):
+! for a scale factor of 1.0001013 (magnifying the image)
+! change in M1 piston is -1000 microns (motion is towards sky, hence negative)
+! change in M2 piston is  -828 microns (motion is towards sky, hence negative)
+
+! maximum scale factor; set <= 1 to disable scale adjustment
+! note: minimum scale factor = 1/MaxScaleFac
+MaxScaleFac       1.0008
+! this limit allows slightly more travel than the primary and secondary
+! actuators are actually capable of
+
+! Instrument Rotator
+
+! ID: controller number (0 if no controller, <0 invalid)
+! and device number (controller-specific)
+RotID             1
+! physical angle used for pointing error measurements,
+! and the fixed physical angle if there is no rotator
+Rot_Fixed_Phys    0.0
+
+! rotator mount offset (mount units) and scale (mount units/deg)
+! mount angle = offet + (scale * physical angle)
+Rot_Offset  0	! update when magnesensors go in
+Rot_Scale  -1
+
+! rotator limits due to the rotator:
+! note: the actual rotator angle limits are the intersection
+! of the RotLim angle limits with InstPosLim
+! min ang   max ang   max |vel|   max |accel|   max |jerk|
+!  (deg)     (deg)    (deg/sec)   (deg/sec^2)  (deg/sec^3)
+RotLim    -180,      360,        2.0,         0.25,         0.2
+                     
+
