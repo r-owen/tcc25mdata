@@ -9,6 +9,7 @@
 !                  added status bits max_pos, min_pos to WarnStatusMask
 !                  removed closed_loop from WarnStatusMask
 ! 2012-08-10 DL    Increased Altitude lower limit to 18.2 from 6
+! 2015-02-11 DL    Moved stop button in from bad status mask to warning mask
 !-
 
 !   Basic Mount Limits
@@ -32,11 +33,10 @@ Jerk        0.2     0.08     0.25
 ! bit name
 ! 11  Out of closed loop
 ! 12  Amplifier is bad
-! 13  One or more stop buttons is in
 ! 14  Semaphore taken
 ! 18  clock_not_set
-! mask = 292864 = 0x47800
-BadStatusMask  292864
+! mask = 284672 = 0x45800
+BadStatusMask  284672
 
 ! Warning status mask: Warn<Axis>Status is printed
 ! and Axis Init warns if any of these bits is high in a status word:
@@ -49,13 +49,14 @@ BadStatusMask  292864
 !  5  max_acc
 !  6  min_limit
 !  7  max_limit
+! 13  One or more stop buttons is in
 ! 16  1 Hz clock signal missing
 ! 17  clock_slow_signal
 ! 24  ms_on_correction_too_large
 ! 29  bump_dn_cw_sticky
 ! 30  bump_up_ccw_sticky
-! mask = 1627586815 = 0x610300ff
-WarnStatusMask 1627586815
+! mask = 1627595007 = 0x610320ff
+WarnStatusMask 1627595007
 
 ! Maximum delta-time between axis controller and TCC, in sec
 MaxDTime 0.85
