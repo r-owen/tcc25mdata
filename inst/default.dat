@@ -47,10 +47,10 @@
 ! 2007-12-05 DL Secondary coefficients updated after Heidenhain flexure repair
 ! 2007-12-12 DL Secondary coefficients updated after second set of data from above repair.
 ! 2007-12-12 SS Primary coefficients updated after optical collimation.
-! 2007 12-24 SS Removed M1 tilts, put in new translatin values for better 
+! 2007 12-24 SS Removed M1 tilts, put in new translatin values for better
 ! collimation.
 ! 2008-08-23 DL Secondary coefficients updated after shutdown.
-! 2008-08-26 DL Secondary coefficients updated after transverse limit switch 
+! 2008-08-26 DL Secondary coefficients updated after transverse limit switch
 !               replacement.
 ! 2009-08-15 DL Secondary coefficients updated: mechanical collimation
 ! 2010-08-02 DL Secondary coefficients updated: mechanical collimation
@@ -62,6 +62,7 @@
 ! 2013-08-13 DL Secondary coefficients updated: mechanical collimation
 ! 2014-08-13 DL Secondary coefficients updated: mechanical collimation
 ! 2014-08-14 KP, HB, PH M1 coefficients update: optical collimation
+! 2015-03-04 CS. Implement true primary tilt coeffs in default.dat, remove fudge in actuator offsets.
 
 ! Mirror Control
 
@@ -80,10 +81,9 @@ PrimPistCoef       0.0       0.0       0.0
 ! Zeroed 2011-10-04 by Russell Owen (along with modifying tdat:mir.dat).
 ! Before that the values were:
 ! K. Pan retore X-Y Tilt Coef to -24.31 and 11.3 on 8/19/14
-! PrimXTiltCoef      -17.2       0.0       0.0
-! PrimYTiltCoef      11.9       0.0       0.0
-PrimXTiltCoef      0.0       0.0       0.0
-PrimYTiltCoef      0.0       0.0       0.0
+! C. Sayres use X-Y Tilts here now, primary mirror controller handles tilts gracefully now.
+PrimXTiltCoef      -17.2       0.0       0.0
+PrimYTiltCoef      11.9       0.0       0.0
 PrimXTransCoef     651.0       0.0       0.0
 PrimYTransCoef     937.4       0.0       0.0
 
@@ -139,5 +139,5 @@ Rot_Scale  -1
 ! min ang   max ang   max |vel|   max |accel|   max |jerk|
 !  (deg)     (deg)    (deg/sec)   (deg/sec^2)  (deg/sec^3)
 RotLim    -180,      360,        2.0,         0.25,         0.2
-                     
+
 
