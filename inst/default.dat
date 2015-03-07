@@ -82,8 +82,11 @@ PrimPistCoef       0.0       0.0       0.0
 ! Before that the values were:
 ! K. Pan retore X-Y Tilt Coef to -24.31 and 11.3 on 8/19/14
 ! C. Sayres use X-Y Tilts here now, primary mirror controller handles tilts gracefully now.
-PrimXTiltCoef      -17.2       0.0       0.0
-PrimYTiltCoef      11.9       0.0       0.0
+!PrimXTiltCoef      -17.2       0.0       0.0
+!PrimYTiltCoef      11.9       0.0       0.0
+! C. Sayres setting X-Y Tilts back to zero after tests on 2015-03-06
+PrimXTiltCoef      0.0       0.0       0.0
+PrimYTiltCoef      0.0       0.0       0.0
 PrimXTransCoef     651.0       0.0       0.0
 PrimYTransCoef     937.4       0.0       0.0
 
