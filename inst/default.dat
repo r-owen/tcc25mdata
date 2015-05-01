@@ -81,14 +81,24 @@ PrimPistCoef       0.0       0.0       0.0
 ! Zeroed 2011-10-04 by Russell Owen (along with modifying tdat:mir.dat).
 ! Before that the values were:
 ! K. Pan retore X-Y Tilt Coef to -24.31 and 11.3 on 8/19/14
-! C. Sayres use X-Y Tilts here now, primary mirror controller handles tilts gracefully now.
 !PrimXTiltCoef      -17.2       0.0       0.0
 !PrimYTiltCoef      11.9       0.0       0.0
-! C. Sayres setting X-Y Tilts back to zero after tests on 2015-03-06
-PrimXTiltCoef      0.0       0.0       0.0
-PrimYTiltCoef      0.0       0.0       0.0
-PrimXTransCoef     651.0       0.0       0.0
-PrimYTransCoef     937.4       0.0       0.0
+! C. Sayres setting X-Y Tilts back to zero after tests on 2015-05-01
+! PREVIOUS VALUES:
+! PrimXTiltCoef      0.0       0.0       0.0
+! PrimYTiltCoef      0.0       0.0       0.0
+! PrimXTransCoef     651.0       0.0       0.0
+! PrimYTransCoef     937.4       0.0       0.0
+
+! Values solved for in mirrorCtrl/bin/25mPrimCoeffConverter.py
+! These orientation values allow for tilts to be included here
+! rather than as hidden offsets in the mirror model
+! solver found the orientation for which commanded positions
+! are almost indentical between the old and new model of the primary mirror.
+PrimXTiltCoef      -17.47       0.0       0.0
+PrimYTiltCoef      11.84       0.0       0.0
+PrimXTransCoef     635.9       0.0       0.0
+PrimYTransCoef     916.8       0.0       0.0
 
 SecPistCoef        0.0    -286.0       0.0
 SecXTiltCoef      -3.8       0.0       0.0
