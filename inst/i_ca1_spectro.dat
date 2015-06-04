@@ -15,17 +15,13 @@ IIm_MaxXY      1023      1023
 
 ! focus (secondary piston) offset due to instrument (um)
 Inst_Foc          1400                 !Changed 000329 DL
+
 ! position of the center of the rotator in instrument frame (x,y deg)
-! -0.0015  xxx
 Rot_Inst_xy       0.0             0.0    !Changed 040421 DL
+
 ! angle from the instrument x axis to the rotator x axis (deg)
 Rot_Inst_ang    -89.962                !Changed 2010-12-21 CPL
-!Restored after rotator offset corrected
 
-! minimum and maximum rotator angle due to the instrument (deg)
-! note: the actual rotator limits are the intersection of this
-! with the RotLim angle limits
-InstPosLim     -999       999
 ! Guide Camera Image
 
 GCamID            1

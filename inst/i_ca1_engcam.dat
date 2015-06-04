@@ -25,23 +25,41 @@ IIm_MaxXY      1023      1023
 ! focus (secondary piston) offset due to instrument (um)
 !ph leave the same for now
 Inst_Foc          1500
-! position of the center of the rotator in instrument frame (x,y deg)
-! *** Since the engineering camera is also used as a guide camera
-! *** (e.g. when taking pointing data)
-! *** be sure to also fit "pos. w.r.t. rotator" for guide probe 1
-! *** the value will be different than Rot_Inst_xy
-! *** because Rot_Inst_xy is in the frame of the instrument
-! *** whereas "pos. w.r.t. rotator" is in the frame of the rotator
-Rot_Inst_xy      0.00    0.00 
-! angle from the instrument x axis to the rotator x axis (deg)
-! *** be sure to also update "angle of rot w.r.t. image" for guide probe 1
-! *** this has the same value as Rot_Inst_ang
-Rot_Inst_ang     -89.85
 
-! minimum and maximum rotator angle due to the instrument (deg)
-! note: the actual rotator limits are the intersection of this
-! with the RotLim angle limits
-InstPosLim     -999       999
+! position of the center of the rotator in instrument frame (x,y deg)
+! WARNING: copy this data to GProbe 1 below, and a variant with a 1 degree offset to GProbe 2
+Rot_Inst_xy      -0.000153    0.000540 
+
+! angle from the instrument x axis to the rotator x axis (deg)
+! WARNING: copy this data to GProbe 1 and 2 below
+Rot_Inst_ang     -89.61
+
+! Guide Probe(s)
+! probe number (in range [1,20]), does probe exist? (T=yes/F=no)
+! if and only if the probe exists then this data must follow in order:
+! center of guide probe on guide image (x,y unbinned pix)
+! mininum guide image coordinates (x,y unbinned pix)
+! maximum guide image coordinates (x,y unbinned pix)
+! position of guide camera probe w.r.t. rotator (x,y deg on sky)
+! angle from the guide image x axis to rotator x axis (deg)
+GProbe    1         T		! probe number, exists?
+        602       512  	        ! center (x,y unbinned pix)
+          0         0		! mininum (x,y unbinned pix)
+       1023      1023		! maximum (x,y unbinned pix)
+       -0.000153    0.000540  	! pos. w.r.t. rotator (x,y deg on sky); ; a copy of Rot_Inst_xy
+       -89.61			! angle of rot w.r.t. image (deg) ; a copy of Rot_Inst_ang
+
+! A dummy probe one degree out. Note that the second "y" coordinate appears
+! to move in X.
+GProbe    2         T           ! probe number, exists? 
+        602       512           ! center (x,y unbinned pix) 
+          0         0           ! mininum (x,y unbinned pix) 
+       1023      1023           ! maximum (x,y unbinned pix) 
+       -0.000153    1.000540    ! pos. w.r.t. rotator (x,y deg on sky); a copy of Rot_Inst_xy + 1 degree in Y??
+        -89.61                  ! angle of rot w.r.t. image (deg); a copy of Rot_Inst_ang
+
+! number of probe used for pointing error measurements
+PtErrProbe   1
 
 ! Guide Camera Image
 GCamID            1  
@@ -67,31 +85,6 @@ GIm_MaxXY      1023      1023
 ! binning factor (integer x,y)
 GIm_BinFac        2         2
 
-! Guide Probe(s)
-! probe number (in range [1,20]), does probe exist? (T=yes/F=no)
-! if and only if the probe exists then this data must follow in order:
-! center of guide probe on guide image (x,y unbinned pix)
-! mininum guide image coordinates (x,y unbinned pix)
-! maximum guide image coordinates (x,y unbinned pix)
-! position of guide camera probe w.r.t. rotator (x,y deg on sky)
-! angle from the guide image x axis to rotator x axis (deg)
-GProbe    1         T		! probe number, exists?
-        602       512  	        ! center (x,y unbinned pix)
-          0         0		! mininum (x,y unbinned pix)
-       1023      1023		! maximum (x,y unbinned pix)
-       0.0000   0.0000   	! pos. w.r.t. rotator (x,y deg on sky) ph dont know yet
-       -89.85			! angle of rot w.r.t. image (deg) 
-! number of probe used for pointing error measurements
-PtErrProbe   1
-
-! A dummy probe one degree out. Note that the second "y" coordinate appears
-! to move in X.
-GProbe    2         T           ! probe number, exists? 
-        602       512           ! center (x,y unbinned pix) 
-          0         0           ! mininum (x,y unbinned pix) 
-       1023      1023           ! maximum (x,y unbinned pix) 
-       0.0000    0.0000      ! pos. w.r.t. rotator (x,y deg on sky) ph dont know yet 
-        89.85                   ! angle of rot w.r.t. image (deg)
 ! ID: controller number (0 if no controller, <0 invalid)
 ! and device number (controller-specific)
 !GMechID           0         0
