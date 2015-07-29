@@ -104,7 +104,7 @@ PrimYTransCoef     916.8       0.0       0.0
 SecPistCoef        0.0    -286.0       0.0
 SecXTiltCoef       9.2       0.0      -5.6
 SecYTiltCoef     -11.4      -7.3       0.0
-SecXTransCoef      0.0       0.0       0.0
+SecXTransCoef     25.0       0.0       0.0
 SecYTransCoef   -270.0       0.0     440.0
 
 
