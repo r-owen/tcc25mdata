@@ -63,7 +63,7 @@
 ! 2014-08-13 DL Secondary coefficients updated: mechanical collimation
 ! 2014-08-14 KP, HB, PH M1 coefficients update: optical collimation
 ! 2015-03-04 CS. Implement true primary tilt coeffs in default.dat, remove fudge in actuator offsets.
-! 2015-07-29 DL Secondary coefficients updated: mechanical collimation
+! 2015-07-29 DL Primary and secondary coefficients updated: mechanical collimation
 
 ! Mirror Control
 
@@ -96,10 +96,11 @@ PrimPistCoef       0.0       0.0       0.0
 ! rather than as hidden offsets in the mirror model
 ! solver found the orientation for which commanded positions
 ! are almost indentical between the old and new model of the primary mirror.
-PrimXTiltCoef      -17.47       0.0       0.0
-PrimYTiltCoef      11.84       0.0       0.0
-PrimXTransCoef     635.9       0.0       0.0
-PrimYTransCoef     916.8       0.0       0.0
+
+PrimXTiltCoef       0.0        0.0       0.0
+PrimYTiltCoef       0.0        0.0       0.0
+PrimXTransCoef      0.0        0.0       0.0
+PrimYTransCoef      0.0        0.0       0.0
 
 SecPistCoef        0.0    -286.0       0.0
 SecXTiltCoef       9.2       0.0      -5.6
