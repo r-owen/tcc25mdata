@@ -10,7 +10,8 @@
 ! 2010-08-05 PH First pass at Alta engineering camera 
 ! 2010-08-10 CPL Instrument block done.
 ! 2014-12-09 RO converted to new tcc format
-! 2015_08_14 KP added GProbe for 1.0 degree and 1.3 degree. 
+! 2015-08-14 KP added GProbe for 1.0 degree and 1.3 degree.
+! 2015-08-25 RO fixed an error in Rot_Inst_xy and simplified some comments.
 
 ! Instrument
 
@@ -27,8 +28,9 @@ IIm_MaxXY      1023      1023
 Inst_Foc          1500
 
 ! position of the center of the rotator in instrument frame (x,y deg)
-! WARNING: copy this data to GProbe 1 below, and a variant with a 1 degree offset to GProbe 2
-Rot_Inst_xy      -0.005260    0.00892 
+! WARNING: copy this data to GProbe 1 below, and variants at other radii to additional guide probes,
+! increasing the X component by the desired radius.
+Rot_Inst_xy      -0.005260    0.000892 
 
 ! angle from the instrument x axis to the rotator x axis (deg)
 ! WARNING: copy this data to GProbe 1 and 2 below
@@ -49,8 +51,8 @@ GProbe    1         T		! probe number, exists?
        -0.005260   0.000892  	! pos. w.r.t. rotator (x,y deg on sky); 
        -90.1			! angle of rot w.r.t. image (deg) ; a copy of Rot_Inst_ang
 
-! A dummy probe one degree out. Note that the second "y" coordinate appears
-! to move in X.
+! A dummy probe 1.0 degree out (increase X component of pos. wr.r.t. rotator by 1.0 degrees).
+! Note that the second "y" coordinate appears to move in X.
 GProbe    2         T           ! probe number, exists? 
         515       512           ! center (x,y unbinned pix) 
           0         0           ! mininum (x,y unbinned pix) 
@@ -58,8 +60,7 @@ GProbe    2         T           ! probe number, exists?
        0.99474   0.000892    ! pos. w.r.t. rotator (x,y deg on sky); 
         -90.1                  ! angle of rot w.r.t. image (deg); a copy of Rot_Inst_ang
 
-! A dummy probe one degree out. Note that the second "y" coordinate appears
-! to move in X.
+! A dummy probe 1.5 degrees out (increase X component of pos. wr.r.t. rotator by 1.5 degrees).
 GProbe    3         T           ! probe number, exists?
         515       512           ! center (x,y unbinned pix)
           0         0           ! mininum (x,y unbinned pix)
