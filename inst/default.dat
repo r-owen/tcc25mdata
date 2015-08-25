@@ -64,6 +64,8 @@
 ! 2014-08-14 KP, HB, PH M1 coefficients update: optical collimation
 ! 2015-03-04 CS. Implement true primary tilt coeffs in default.dat, remove fudge in actuator offsets.
 ! 2015-07-29 DL Primary and secondary coefficients updated: mechanical collimation
+! 2015-08-19 KP Primary coefficients  updated: optical collimation
+! 2015-08-25 RO Cleaned up some outdated comments
 
 ! Mirror Control
 
@@ -73,33 +75,13 @@
 ! - value = Coef1 + Coef2 sin(alt) + Coef3 cos(alt)
 !                const     sin(alt)  cos(alt)
 PrimPistCoef       0.0       0.0       0.0
-! The tilt coefficients should be zero so that scale changes never tilt the mirror
-! and mess up pointing. If you measure a new tilt for collimation then run
-! [TCC.RELEASE.SRC.SUBR.MIR.TEST]dooneorient2mount
-! to determine the corresponding mount position for M1 actuators A, B, C.
-! Then round those values to the nearest multiple of 50
-! and use the rounded values to replace the first three values of PrimMountOffset tdat:mir.dat.
-! Zeroed 2011-10-04 by Russell Owen (along with modifying tdat:mir.dat).
-! Before that the values were:
-! K. Pan retore X-Y Tilt Coef to -24.31 and 11.3 on 8/19/14
-!PrimXTiltCoef      -17.2       0.0       0.0
-!PrimYTiltCoef      11.9       0.0       0.0
-! opt collimation on 8-19-15: KP and EM
-PrimXTiltCoef      -24.21       0.0       0.0
-PrimYTiltCoef      6.52       0.0       0.0
-PrimXTransCoef     356.1       0.0       0.0
-PrimYTransCoef     1323.0       0.0       0.0
-
-! Values solved for in mirrorCtrl/bin/25mPrimCoeffConverter.py
-! These orientation values allow for tilts to be included here
-! rather than as hidden offsets in the mirror model
-! solver found the orientation for which commanded positions
-! are almost indentical between the old and new model of the primary mirror.
-
-! PrimXTiltCoef       0.0        0.0       0.0
-! PrimYTiltCoef       0.0        0.0       0.0
-! PrimXTransCoef      0.0        0.0       0.0
-! PrimYTransCoef      0.0        0.0       0.0
+! Warning: the primary mirror sin and cos coefficients for tilt and translation must be zero,
+! so that moving the telescope will not command a tilt or translation (which can induce a jump in tilt).
+! optical collimation on 8-19-15: KP and EM
+PrimXTiltCoef    -24.21      0.0       0.0
+PrimYTiltCoef      6.52      0.0       0.0
+PrimXTransCoef   356.1       0.0       0.0
+PrimYTransCoef  1323.0       0.0       0.0
 
 SecPistCoef        0.0    -286.0       0.0
 SecXTiltCoef       9.2       0.0      -5.6
