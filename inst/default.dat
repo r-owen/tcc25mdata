@@ -66,6 +66,7 @@
 ! 2015-07-29 DL Primary and secondary coefficients updated: mechanical collimation
 ! 2015-08-19 KP Primary coefficients  updated: optical collimation
 ! 2015-08-25 RO Cleaned up some outdated comments
+! 2016-08-19 JD Primary and secondary coefficients updated:  mechanical collimation
 
 ! Mirror Control
 
@@ -78,16 +79,16 @@ PrimPistCoef       0.0       0.0       0.0
 ! Warning: the primary mirror sin and cos coefficients for tilt and translation must be zero,
 ! so that moving the telescope will not command a tilt or translation (which can induce a jump in tilt).
 ! optical collimation on 8-19-15: KP and EM
-PrimXTiltCoef    -24.21      0.0       0.0
-PrimYTiltCoef      6.52      0.0       0.0
-PrimXTransCoef   356.1       0.0       0.0
-PrimYTransCoef  1323.0       0.0       0.0
+PrimXTiltCoef      3.12       0.0       0.0
+PrimYTiltCoef     -1.95       0.0       0.0
+PrimXTransCoef  -106.75       0.0       0.0
+PrimYTransCoef  -170.80       0.0       0.0
 
 SecPistCoef        0.0    -286.0       0.0
-SecXTiltCoef       9.2       0.0      -5.6
-SecYTiltCoef     -11.4      -7.3       0.0
-SecXTransCoef     25.0       0.0       0.0
-SecYTransCoef   -270.0       0.0     440.0
+SecXTiltCoef       4.9       0.0      -8.0
+SecYTiltCoef      -5.5      -7.7       0.0
+SecXTransCoef     40.0       0.0       0.0
+SecYTransCoef    -78.0       0.0     412.0
 
 
 ! secondary piston (focus) temperature coefficients (in um/C)

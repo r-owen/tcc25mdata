@@ -17,8 +17,8 @@
 
 ! image center (x,y unbinned pix) and scale (x,y unbinned pix/deg on sky)
 ! center is desired loc. of zero boresight; it need not be geometric center
-IIm_Ctr         515       512
-IIm_Scale      -16780    16746
+IIm_Ctr         512       512
+IIm_Scale      -16743.2    16738.7
 ! minimum and maximum instrument image coordinates (x,y unbinned pix)
 IIm_MinXY         0         0
 IIm_MaxXY      1023      1023
@@ -30,11 +30,11 @@ Inst_Foc          1500
 ! position of the center of the rotator in instrument frame (x,y deg)
 ! WARNING: copy this data to GProbe 1 below, and variants at other radii to additional guide probes,
 ! increasing the X component by the desired radius.
-Rot_Inst_xy      -0.005260    0.000892 
+Rot_Inst_xy      -0.005275   0.000206 
 
 ! angle from the instrument x axis to the rotator x axis (deg)
 ! WARNING: copy this data to GProbe 1 and 2 below
-Rot_Inst_ang     -90.1
+Rot_Inst_ang     -89.97
 
 ! Guide Probe(s)
 ! probe number (in range [1,20]), does probe exist? (T=yes/F=no)
@@ -45,28 +45,28 @@ Rot_Inst_ang     -90.1
 ! position of guide camera probe w.r.t. rotator (x,y deg on sky)
 ! angle from the guide image x axis to rotator x axis (deg)
 GProbe    1         T		! probe number, exists?
-        515       512  	        ! center (x,y unbinned pix)
+        512       512  	        ! center (x,y unbinned pix)
           0         0		! mininum (x,y unbinned pix)
        1023      1023		! maximum (x,y unbinned pix)
-       -0.005260   0.000892  	! pos. w.r.t. rotator (x,y deg on sky); 
-       -90.1			! angle of rot w.r.t. image (deg) ; a copy of Rot_Inst_ang
+       -0.005575 0.000206  	! pos. w.r.t. rotator (x,y deg on sky); 
+       -89.97			! angle of rot w.r.t. image (deg) ; a copy of Rot_Inst_ang
 
 ! A dummy probe 1.0 degree out (increase X component of pos. wr.r.t. rotator by 1.0 degrees).
 ! Note that the second "y" coordinate appears to move in X.
 GProbe    2         T           ! probe number, exists? 
-        515       512           ! center (x,y unbinned pix) 
+        512       512           ! center (x,y unbinned pix) 
           0         0           ! mininum (x,y unbinned pix) 
        1023      1023           ! maximum (x,y unbinned pix) 
-       0.99474   0.000892    ! pos. w.r.t. rotator (x,y deg on sky); 
-        -90.1                  ! angle of rot w.r.t. image (deg); a copy of Rot_Inst_ang
+       0.994725 0.000206       ! pos. w.r.t. rotator (x,y deg on sky); 
+       -89.97                   ! angle of rot w.r.t. image (deg); a copy of Rot_Inst_ang
 
-! A dummy probe 1.5 degrees out (increase X component of pos. wr.r.t. rotator by 1.5 degrees).
+! A dummy probe 1.3 degrees out (increase X component of pos. wr.r.t. rotator by 1.5 degrees).
 GProbe    3         T           ! probe number, exists?
-        515       512           ! center (x,y unbinned pix)
+        512       512           ! center (x,y unbinned pix)
           0         0           ! mininum (x,y unbinned pix)
        1023      1023           ! maximum (x,y unbinned pix)
-       1.32474    0.000892    ! pos. w.r.t. rotator (x,y deg on sky); 
-        -90.1                  ! angle of rot w.r.t. image (deg); a copy of Rot_Inst_ang
+       1.294725 0.000206       ! pos. w.r.t. rotator (x,y deg on sky); 
+       -89.97                   ! angle of rot w.r.t. image (deg); a copy of Rot_Inst_ang
 
 ! number of probe used for pointing error measurements
 PtErrProbe   1                 
@@ -81,14 +81,14 @@ GIm_MaxCount   60000
 
 ! default center of guide image (unbinned pix)
 ! (for GCAM commands; used when user does not specify center)
-GIm_Ctr         515       512
+GIm_Ctr         512       512
 ! guide image scale (unbinned pix/deg on sky)
 ! 60.6 microns/arcsec, 13 micron pixels
 !ph there is a scale discrepency between new and old guider
 !ph old 9um pixel scale was 24015 
 !ph 3600*60.6/13 =  16781
 !ph but 24015*9/13 = 16625
-GIm_Scale     -16780 16746 
+GIm_Scale     -16743.2 16738.7 
 ! minimum and maximum position on guide image (unbinned pix)
 GIm_MinXY         0         0
 GIm_MaxXY      1023      1023
