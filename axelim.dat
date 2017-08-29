@@ -10,15 +10,16 @@
 !                  removed closed_loop from WarnStatusMask
 ! 2012-08-10 DL    Increased Altitude lower limit to 18.2 from 6
 ! 2015-02-11 DL    Moved stop button in from bad status mask to warning mask
+! 2017-08-30 CS    Adjusted rot limits from -180, 361 to -101, 255 due to damaged encoder tape.
 !-
 
 !   Basic Mount Limits
 !   axes are: axes are: tel1 (az/eq), tel2 (alt/dec), rot
 
 ! Minimum Position (deg)
-MinPos   -195       18.2    -180
+MinPos   -195       18.2    -101
 ! Maximum Position (deg)
-MaxPos    435      90    +361.0
+MaxPos    435      90    +255
 ! Maximum |velocity| (deg*/sec)
 Vel         2.0     1.5    2.0
 ! Mmaximum |acceleration| (deg*/sec^2)
