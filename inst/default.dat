@@ -21,7 +21,8 @@
 ! 2015-08-25 RO Cleaned up some outdated comments
 ! 2016-08-19 JD Primary and secondary coefficients updated:  mechanical collimation
 ! 2017-08-29 KP cleaned up some updating history comments and updated primary and secondary coefficients
-!            with data from JohnD mechanical collimation.  
+!            with data from JohnD mechanical collimation. 
+! 2018-08-30 CS Set RotLim from -180,360 to -101, 255
 
 ! Mirror Control
 
@@ -90,7 +91,7 @@ Rot_Scale  -1
 ! of the RotLim angle limits with InstPosLim
 ! min ang   max ang   max |vel|   max |accel|   max |jerk|
 !  (deg)     (deg)    (deg/sec)   (deg/sec^2)  (deg/sec^3)
-RotLim    -180,      360,        2.0,         0.25,         0.2
+RotLim    -101,      255,        2.0,         0.25,         0.2
 
 ! minimum and maximum rotator angle due to the instrument (deg)
 ! the actual rotator limits are the intersection of this with the RotLim angle limits
