@@ -34,11 +34,11 @@
 PrimPistCoef       0.0       0.0       0.0
 ! Warning: the primary mirror sin and cos coefficients for tilt and translation must be zero,
 ! so that moving the telescope will not command a tilt or translation (which can induce a jump in tilt).
-! optical collimation on 8-19-15: KP and EM
-PrimXTiltCoef      1.0       0.0       0.0
-PrimYTiltCoef     -3.0       0.0       0.0
-PrimXTransCoef   300.0       0.0       0.0
-PrimYTransCoef  -225.0       0.0       0.0
+! optical collimation on 8-30-17: KP 
+PrimXTiltCoef     15.8       0.0       0.0
+PrimYTiltCoef     -1.5       0.0       0.0
+PrimXTransCoef   -84.3       0.0       0.0
+PrimYTransCoef  -865.5       0.0       0.0
 
 SecPistCoef        0.0    -286.0       0.0
 SecXTiltCoef      -1.7       0.0      -9.0

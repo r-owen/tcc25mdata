@@ -8,19 +8,19 @@
 ! image center (x,y unbinned pix) and scale (x,y unbinned pix/deg on sky)
 ! center is desired loc. of zero boresight; it need not be geometric center
 IIm_Ctr         512       512
-IIm_Scale     16700     16700
+IIm_Scale     16725     16725         ! Changed by KPAN 09092017
 ! minimum and maximum instrument image coordinates (x,y unbinned pix)
 IIm_MinXY         0         0
 IIm_MaxXY      1023      1023
 
 ! focus (secondary piston) offset due to instrument (um)
-Inst_Foc          1400                 !Changed 000329 DL
+Inst_Foc          -2400                 !Changed by KPAN 09092017
 
 ! position of the center of the rotator in instrument frame (x,y deg)
-Rot_Inst_xy       0.0             0.0    !Changed 040421 DL
+Rot_Inst_xy       -0.004            0.0004    !Changed 09092017 KPAN
 
 ! angle from the instrument x axis to the rotator x axis (deg)
-Rot_Inst_ang    -89.962                !Changed 2010-12-21 CPL
+Rot_Inst_ang    -89.95                !Changed 2017-09-09 KPAN
 
 ! Guide Camera Image
 
@@ -31,7 +31,7 @@ GCamID            1
 GIm_Ctr         512       512
 ! guide image scale (unbinned pix/deg on sky)
 ! 60.6 microns/arcsec, 9 micron pixels
-GIm_Scale      16700    16700
+GIm_Scale      16725    16725
 ! minimum and maximum position on guide image (unbinned pix)
 GIm_MinXY         0         0
 GIm_MaxXY       1023     1023
