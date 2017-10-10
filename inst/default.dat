@@ -91,7 +91,7 @@ Rot_Scale  -1
 ! of the RotLim angle limits with InstPosLim
 ! min ang   max ang   max |vel|   max |accel|   max |jerk|
 !  (deg)     (deg)    (deg/sec)   (deg/sec^2)  (deg/sec^3)
-RotLim    -101,      255,        2.0,         0.25,         0.2
+RotLim    -180,      360,        2.0,         0.25,         0.2
 
 ! minimum and maximum rotator angle due to the instrument (deg)
 ! the actual rotator limits are the intersection of this with the RotLim angle limits
