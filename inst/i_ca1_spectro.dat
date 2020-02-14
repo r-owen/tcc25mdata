@@ -17,10 +17,10 @@ IIm_MaxXY      1023      1023
 Inst_Foc          1000                 !Changed by KPAN 09172018
 
 ! position of the center of the rotator in instrument frame (x,y deg)
-Rot_Inst_xy        0.0010            0.0015     !Changed by KPAN 03232019   
+Rot_Inst_xy        0.0005            0.0030       
 
 ! angle from the instrument x axis to the rotator x axis (deg)
-Rot_Inst_ang    -89.88                
+Rot_Inst_ang    -89.89                
 
 ! Guide Camera Image
 
