@@ -36,16 +36,16 @@ PrimPistCoef       0.0       0.0       0.0
 ! Warning: the primary mirror sin and cos coefficients for tilt and translation must be zero,
 ! so that moving the telescope will not command a tilt or translation (which can induce a jump in tilt).
 ! optical collimation on 9-02-19: KP 
-PrimXTiltCoef   -11.37       0.0       0.0
-PrimYTiltCoef     6.87       0.0       0.0
-PrimXTransCoef  375.47       0.0       0.0
-PrimYTransCoef  621.12       0.0       0.0
+PrimXTiltCoef   69.89       0.0       0.0
+PrimYTiltCoef   100.00      0.0       0.0
+PrimXTransCoef  375.30       0.0       0.0
+PrimYTransCoef  622.11       0.0       0.0
 
 SecPistCoef        0.0    -286.0       0.0
-SecXTiltCoef      11.1       0.0      -9.7
-SecYTiltCoef      14.8      -4.1       0.0
-SecXTransCoef    -36.3      -4.1       0.0
-SecYTransCoef   -248.7       0.0     467.9
+SecXTiltCoef      -4.4       0.0     -11.1 
+SecYTiltCoef      -0.1      -5.6       0.0
+SecXTransCoef      5.8      13.4       0.0
+SecYTransCoef   -297.4       0.0     475.3
 
 
 ! secondary piston (focus) temperature coefficients (in um/C)

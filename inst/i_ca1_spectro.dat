@@ -14,10 +14,10 @@ IIm_MinXY         0         0
 IIm_MaxXY      1023      1023
 
 ! focus (secondary piston) offset due to instrument (um)
-Inst_Foc          1000                 !Changed by KPAN 09172018
+Inst_Foc          3800                 !Changed by KPAN 10302020
 
 ! position of the center of the rotator in instrument frame (x,y deg)
-Rot_Inst_xy        0.0005            0.0030       
+Rot_Inst_xy        0.000            0.001       
 
 ! angle from the instrument x axis to the rotator x axis (deg)
 Rot_Inst_ang    -89.89                
